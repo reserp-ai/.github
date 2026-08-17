@@ -20,10 +20,10 @@ Reserp turns the visible result blocks from Google Search into structured JSON t
 
 ## Official JavaScript and TypeScript SDK
 
-Install the [`reserp`](https://www.npmjs.com/package/reserp) package from npm:
+Install the [`@reserp/sdk`](https://www.npmjs.com/package/@reserp/sdk) package from npm:
 
 ```bash
-npm install reserp
+npm install @reserp/sdk
 ```
 
 The source code, examples, issue tracker, and releases are available in [`reserp-ai/reserp-js`](https://github.com/reserp-ai/reserp-js).

@@ -45,7 +45,7 @@ The source code, examples, issue tracker, and releases are available in [`reserp
 
 - [Google Search API documentation](https://reserp.ai/docs)
 - [OpenAPI 3.1 document](https://reserp.ai/openapi.json)
-- [Public Postman workspace](https://www.postman.com/reserp-ai/reserp-google-search-api/overview)
+- [Postman API documentation](https://documenter.getpostman.com/view/57501126/2sBYArSrqS)
 - [Plans and pricing](https://reserp.ai/pricing)
 - [Create a Reserp account](https://reserp.ai/dashboard)
 - [Reserp on LinkedIn](https://www.linkedin.com/company/reserp-ai)

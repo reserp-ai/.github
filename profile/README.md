@@ -33,9 +33,12 @@ curl --request POST 'https://api.reserp.ai/v2/serp/urls' \
 
 Search options remain in the submitted Google URL. Send `pagination.next_url` back as the next request body's `url`; do not infer an offset from a result-array length.
 
-## Client-library status
+## Official SDKs
 
-The currently published [`@reserp/sdk`](https://github.com/reserp-ai/reserp-js) and [`reserp`](https://github.com/reserp-ai/reserp-python) packages target the legacy v1 contract. New v2 integrations should use direct HTTP and the canonical OpenAPI document until a v2-compatible client release is published.
+- [`@reserp/sdk` 0.3](https://www.npmjs.com/package/@reserp/sdk) provides typed JavaScript and TypeScript `urls()` and `structured()` methods.
+- [`reserp` 0.3](https://pypi.org/project/reserp/) provides synchronous and asynchronous Python `urls()` and `structured()` methods.
+
+Both SDKs target API v2, make exactly one request per call, and return their native transport response unchanged. `search()` remains a URL-index alias in both packages.
 
 ## Resources
 

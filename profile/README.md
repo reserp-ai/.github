@@ -17,33 +17,30 @@
   <a href="https://reserp.ai/dashboard">Dashboard</a>
 </p>
 
-Reserp turns the visible result blocks from Google Search into structured JSON through one stable, documented API. It supports organic results, news, carousels, sitelinks, pagination, and nested result blocks without requiring developers to maintain search-page scrapers.
+Reserp v2 turns Google Search pages into two documented JSON shapes without requiring developers to maintain search-page scrapers:
 
-## Official clients
+- [`POST /v2/serp/urls`](https://reserp.ai/docs/urls) returns a flat, page-ordered URL-and-text index for scraping, research, monitoring, and AI ingestion.
+- [`POST /v2/serp/structured`](https://reserp.ai/docs/structured) returns typed organic, ad, image, shopping, news, video, and local results plus page features and explicit positions.
 
-### JavaScript and TypeScript
+## Call v2 directly
 
-Install the [`@reserp/sdk`](https://www.npmjs.com/package/@reserp/sdk) package from npm:
-
-```bash
-npm install @reserp/sdk
+```sh
+curl --request POST 'https://api.reserp.ai/v2/serp/urls' \
+  --header "Authorization: Bearer $RESERP_API_KEY" \
+  --header 'Content-Type: application/json' \
+  --data '{"url":"https://www.google.com/search?q=photonic+computing&gl=us&hl=en"}'
 ```
 
-The source code, examples, issue tracker, and releases are available in [`reserp-ai/reserp-js`](https://github.com/reserp-ai/reserp-js).
+Search options remain in the submitted Google URL. Send `pagination.next_url` back as the next request body's `url`; do not infer an offset from a result-array length.
 
-### Python
+## Client-library status
 
-Install the [`reserp`](https://pypi.org/project/reserp/) package from PyPI:
-
-```bash
-pip install reserp
-```
-
-The source code, examples, issue tracker, and releases are available in [`reserp-ai/reserp-python`](https://github.com/reserp-ai/reserp-python).
+The currently published [`@reserp/sdk`](https://github.com/reserp-ai/reserp-js) and [`reserp`](https://github.com/reserp-ai/reserp-python) packages target the legacy v1 contract. New v2 integrations should use direct HTTP and the canonical OpenAPI document until a v2-compatible client release is published.
 
 ## Resources
 
 - [Google Search API documentation](https://reserp.ai/docs)
+- [Runnable v2 examples](https://github.com/reserp-ai/reserp-examples)
 - [OpenAPI 3.1 document](https://reserp.ai/openapi.json)
 - [Postman API documentation](https://documenter.getpostman.com/view/57501126/2sBYArSrqS)
 - [Plans and pricing](https://reserp.ai/pricing)

@@ -19,13 +19,13 @@
 
 Reserp v2 turns Google Search pages into two documented JSON shapes without requiring developers to maintain search-page scrapers:
 
-- [`POST /v2/serp/urls`](https://reserp.ai/docs/urls) returns a flat, page-ordered URL-and-text index for scraping, research, monitoring, and AI ingestion.
-- [`POST /v2/serp/structured`](https://reserp.ai/docs/structured) returns typed organic, ad, image, shopping, news, video, and local results plus page features and explicit positions.
+- [`POST /v2/serp/search`](https://reserp.ai/docs/search) returns flat, page-ordered, deduplicated entries in `results[]` for scraping, research, monitoring, and AI ingestion.
+- [`POST /v2/serp/structured`](https://reserp.ai/docs/structured) returns typed, page-ordered SERP blocks in `blocks[]`, with explicit block and item positions.
 
 ## Call v2 directly
 
 ```sh
-curl --request POST 'https://api.reserp.ai/v2/serp/urls' \
+curl --request POST 'https://api.reserp.ai/v2/serp/search' \
   --header "Authorization: Bearer $RESERP_API_KEY" \
   --header 'Content-Type: application/json' \
   --data '{"url":"https://www.google.com/search?q=photonic+computing&gl=us&hl=en"}'
@@ -35,10 +35,10 @@ Search options remain in the submitted Google URL. Send `pagination.next_url` ba
 
 ## Official SDKs
 
-- [`@reserp/sdk` 0.3](https://www.npmjs.com/package/@reserp/sdk) provides typed JavaScript and TypeScript `urls()` and `structured()` methods.
-- [`reserp` 0.3](https://pypi.org/project/reserp/) provides synchronous and asynchronous Python `urls()` and `structured()` methods.
+- [`@reserp/sdk` 0.4](https://www.npmjs.com/package/@reserp/sdk) provides typed JavaScript and TypeScript `search()` and `structured()` methods.
+- [`reserp` 0.4](https://pypi.org/project/reserp/) provides synchronous and asynchronous Python `search()` and `structured()` methods.
 
-Both SDKs target API v2, make exactly one request per call, and return their native transport response unchanged. `search()` remains a URL-index alias in both packages.
+Both SDKs target API v2, make exactly one request per call, and return their native transport response unchanged. The former `urls()` method remains as a deprecated Search alias in both packages.
 
 ## Resources
 
